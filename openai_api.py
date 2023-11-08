@@ -232,11 +232,11 @@ async def predict(model_id: str, params: dict):
 
 
 if __name__ == "__main__":
-    tokenizer = AutoTokenizer.from_pretrained("THUDM/chatglm3-6b", trust_remote_code=True)
-    model = AutoModel.from_pretrained("THUDM/chatglm3-6b", trust_remote_code=True).cuda()
+    tokenizer = AutoTokenizer.from_pretrained("/home/user/data3090/data/chatglm3-6B/chatglm3-6b", trust_remote_code=True)
+    model = AutoModel.from_pretrained("/home/user/data3090/data/chatglm3-6B/chatglm3-6b", trust_remote_code=True).cuda()
     # 多显卡支持，使用下面两行代替上面一行，将num_gpus改为你实际的显卡数量
     # from utils import load_model_on_gpus
     # model = load_model_on_gpus("THUDM/chatglm3-6b", num_gpus=2)
     model = model.eval()
 
-    uvicorn.run(app, host='0.0.0.0', port=8000, workers=1)
+    uvicorn.run(app, host='0.0.0.0', port=7860, workers=1)
